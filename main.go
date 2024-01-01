@@ -9,6 +9,7 @@ import (
 	"os/signal"
 	"syscall"
 	"time"
+
 	"github.com/gorilla/mux"
 )
 
@@ -38,7 +39,7 @@ func main() {
 	r.HandleFunc("/health", healthHandler)
 	r.HandleFunc("/readiness", readinessHandler)
 
-	srv := &http.Server;{
+	srv := &http.Server{
 		Handler:      r,
 		Addr:         ":8080",
 		ReadTimeout:  10 * time.Second,
